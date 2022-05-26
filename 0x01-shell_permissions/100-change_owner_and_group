@@ -1,2 +1,2 @@
 #!/bin/bash
-chpwn -R vincent:schol ./
+chown -R vincent:school ./
