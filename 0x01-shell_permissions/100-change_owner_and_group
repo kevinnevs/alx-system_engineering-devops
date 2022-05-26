@@ -1,0 +1,2 @@
+#!/bin/bash
+chpwn -R vincent:schol ./
