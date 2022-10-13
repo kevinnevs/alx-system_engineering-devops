@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Displays ls -l with cutting their #
+LS="$(ls)"
+for i in $LS
+do
+   echo "$i" | cut -d - -f2
+done
