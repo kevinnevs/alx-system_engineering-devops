@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Manually kill "7-highlander" without using kill or kilall
+
+pkill -f 7-highlander
