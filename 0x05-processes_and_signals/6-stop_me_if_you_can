@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Manually kill "4-to_infinity_and_beyond" without using kill or kilall
+
+pkill -f 4-to_infinity_and_beyond
