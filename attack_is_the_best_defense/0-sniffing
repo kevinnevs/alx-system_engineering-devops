@@ -1,3 +1,3 @@
 # 0-sniffing
 
-tcpdump -A 587
+tcpdump -A port 587
