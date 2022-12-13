@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# 3-redirection
+
+# Install nginx
+apt-get update
+apt-get install -y nginx
+
+# Listen on port 80
+sed -i 's/listen 80 default_server;/listen 80;/' /etc/nginx/sites-available/default
+
+# Redirect /redirect_me to https://youtube.com/watch?v=QH2-TGUlwu4
+cat <<EOF > /etc/nginx/sites-available/default
+server {
+    listen 80 default_server;
+
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+}
+EOF
+
+# Restart nginx
+service nginx restart
