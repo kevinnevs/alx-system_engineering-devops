@@ -1,4 +1,17 @@
 #!/usr/bin/env bash
 # 0-transfer_file
 
-scp ubuntu@100.25.199.250:/home/~/ .
+if [ $# -lt 4 ]; then
+  echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+  exit 1
+fi
+
+# Retrieve the arguments
+path_to_file=$1
+ip=$2
+username=$3
+path_to_ssh_key=$4
+
+# Transfer the file to scp
+# Strict host key must be disabled if using scp
+scp -o "strictHostKeyChecking=no" -i $path_to_ssh_key $path_to_file $username@$ip:~/
