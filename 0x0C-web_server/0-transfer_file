@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# 0-transfer_file
+
+scp ubuntu@100.25.199.250:/home/~/ .
