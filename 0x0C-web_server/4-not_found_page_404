@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# 4-not_found_page_404
+
+# Install nginx
+apt-get update
+apt-get install -y nginx
+
+# Listen on port 80
+sed -i 's/listen 80 default_server;/listen 80;/' /etc/nginx/sites-available/default
+
+# Return 'Ceci n'est pas une page" for 404 errors
+cat <<EOF > /etc/nginx/sites-available/default
+server {
+    listen 80 default_server;
+
+    error_page 404 /404.html;
+
+    location = /404.html {
+        internal;
+        root /usr/share/nginx/html;
+    }
+}
+EOF
+
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/404.html
+
+# Restart nginx
+service nginx restart
