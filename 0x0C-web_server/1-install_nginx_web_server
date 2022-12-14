@@ -2,15 +2,11 @@
 # 1-install_nginx_web_server
 
 # Install nginx
-apt-get update
-apt-get install -y nginx
-
-# Listen on port 80
-sed -i 's/listen 80 default_server;/listen 80;/' /etc/nginx/sites-
-available/default
+sudo apt-get -y update
+sudo apt-get install -y nginx
 
 # Insert 'Hello World' to index.html
-echo "Hello World" > /var/www/html/index.html
+echo "Hello World!" | sudo tee /usr/share/nginx/html/index.html
 
 # Restart nginx
-service nginx restart
+sudo service nginx restart
