@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+sudo apt-get -y update
+sudo apt-get install  --no-install-recommends software-properties-common
+sudo add-apt-reposistory ppa:vbernat/haproxy-2.0
+sudo apt-get -y install haproxy=2.0.\*
+
+# Configure HAProxy
+sudo bash -c 'cat > /etc/haproxy/haproxy.cfg <<EOF
+frontend http
+    bind *:80
+    default_backend web_servers
+
+backend web_servers
+    balance roundrobin
+    server web-01 62123-web-01:80 check
+    server web-02 62123-web-02:80 check
+EOF'
+
+# Replace [STUDENT-ID] with actual student_id
+sed -i "s/\[STUDENT_ID]/62123/g" /etc/haproxy/haproxy.cfg
+
+# Enable and start HAProxy service
+sudo systemctl enable haproxy
+sudo systemctl start haproxy
