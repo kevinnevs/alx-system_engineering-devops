@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-
+# 1-install_load_balancer
+sudo apt-get -y install  --no-install-recommends software-properties-common
+sudo add-apt-reposistory -y ppa:vbernat/haproxy-2.0
 sudo apt-get -y update
-sudo apt-get install  --no-install-recommends software-properties-common
-sudo add-apt-reposistory ppa:vbernat/haproxy-2.0
 sudo apt-get -y install haproxy=2.0.\*
 
 # Configure HAProxy
