@@ -1,0 +1,5 @@
+#!/bin/bash
+# 0-nginx_likes_port_80
+
+sudo ln -sf /etc/nginx/sites-enabled/default /etc/nginx/sites-available/default
+sudo service nginx restart
