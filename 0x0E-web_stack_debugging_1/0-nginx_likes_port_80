@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # 0-nginx_likes_port_80
 
 sudo sed i "s/sites-enabled/sites-available" /etc/nginx/nginx.conf
