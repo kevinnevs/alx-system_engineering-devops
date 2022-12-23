@@ -51,7 +51,7 @@ frontend web-servers
     default_backend web-servers
 
 frontend web-servers
-    bind *:443 ssl crt /etc/haproxy/certs/www.melissax.online.pem
+    bind *:443 ssl crt /etc/haproxy/certs/www.p3nt3st3r.tech
     reqadd X-Forwarded-Proto:\ https
     acl letsencrypt-acl path_beg /.well-known/acme-challenge/
     use_backend letsencrypt-backend if letsencrypt-acl
