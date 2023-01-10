@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# script that configures Nginx to use only nginx user, not root
+
+# create nginx user if it doesn't exist
+id -u nginx &>/dev/null || adduser --system --no-create-home --disabled-login --disabled-password --group nginx
+
+# stop current nginx proces, if it's running
+service nginx stop
+
+# Edit nginx config to listen on all IPs on port 8080 & run as nginx user
+sed -i 's/listen .*/listen 0.0.0.0:8080;/' /etc/nginx/conf.d/default.conf
+sed -i 's/user .*/user nginx;/' /etc/nginx/nginx.conf
+
+# start nginx process as nginx user
+service nginx start
