@@ -13,7 +13,7 @@ chown nginx:nginx /etc/nginx/nginx.conf
 
 # Edit nginx config to listen on all IPs on port 8080 & run as nginx user
 sed -i 's/listen .*/listen 0.0.0.0:8080;/' /etc/nginx/sites-enabled/default
-sed -i 's/user .*/user nginx;/' /etc/nginx/nginx.conf
+sed -i 's/#user www-data/user nginx/' /etc/nginx/nginx.conf
 
 # netstat -lpn shows apache2 is using 8080
 pkill apache2
