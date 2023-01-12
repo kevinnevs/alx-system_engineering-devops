@@ -2,18 +2,17 @@
 # script that configures Nginx to use only nginx user, not root
 
 # create nginx user if it doesn't exist
-id -u nginx &>/dev/null || adduser --system --no-create-home --disabled-login --disabled-password --group nginx
+sudo sed -i 's/#user www-data/user nginx/' /etc/nginx/nginx.conf
 
 # stop current nginx proces, if it's running
 sudo service nginx stop
 
 # change ownership and permission of config file
-chown 700 /etc/nginx/nginx.conf
+chmod 700 /etc/nginx/nginx.conf
 chown nginx:nginx /etc/nginx/nginx.conf
 
 # Edit nginx config to listen on all IPs on port 8080 & run as nginx user
-sed -i 's/listen .*/listen 0.0.0.0:8080;/' /etc/nginx/sites-enabled/default
-sed -i 's/#user www-data/user nginx/' /etc/nginx/nginx.conf
+sudo sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-available/default
 
 # netstat -lpn shows apache2 is using 8080
 pkill apache2
