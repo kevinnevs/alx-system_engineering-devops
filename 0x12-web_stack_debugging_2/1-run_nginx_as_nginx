@@ -11,8 +11,8 @@ sudo service nginx stop
 chmod 700 /etc/nginx/nginx.conf
 chown nginx:nginx /etc/nginx/nginx.conf
 
-# Edit nginx config to listen on all IPs on port 8080 & run as nginx user
-sudo sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-available/default
+# Edit nginx config to listen on all IPs on port 8080
+sudo sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-enabled/default
 
 # netstat -lpn shows apache2 is using 8080
 pkill apache2
