@@ -5,11 +5,18 @@
 id -u nginx &>/dev/null || adduser --system --no-create-home --disabled-login --disabled-password --group nginx
 
 # stop current nginx proces, if it's running
-service nginx stop
+sudo service nginx stop
+
+# change ownership and permission of config file
+chown 700 /etc/nginx/nginx.conf
+chown nginx:nginx /etc/nginx/nginx.conf
 
 # Edit nginx config to listen on all IPs on port 8080 & run as nginx user
 sed -i 's/listen .*/listen 0.0.0.0:8080;/' /etc/nginx/sites-enabled/default
 sed -i 's/user .*/user nginx;/' /etc/nginx/nginx.conf
 
+# netstat -lpn shows apache2 is using 8080
+pkill apache2
+
 # start nginx process as nginx user
-service nginx start
+sudo service nginx start
