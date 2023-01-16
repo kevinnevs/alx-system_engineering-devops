@@ -3,9 +3,9 @@
 Script from 0-gather_data_from_an_API.py, that
 exports data in csv format
 """
-import urllib.request
-import json
 import csv
+import json
+import urllib.request
 import sys
 
 
