@@ -5,6 +5,7 @@ rusing given eomplyee ID
 """
 import json
 import urllib.request
+import sys
 
 
 def todo_list_progress(employee_id):
@@ -34,5 +35,5 @@ def todo_list_progress(employee_id):
 
 
 if __name__ == "__main__":
-    employee_id = 2
+    employee_id = int(sys.argv[1])
     todo_list_progress(employee_id)
