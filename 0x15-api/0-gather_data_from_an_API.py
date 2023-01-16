@@ -9,7 +9,8 @@ import json
 
 def todo_list_progress(employee_id):
     """Make API request"""
-    url = f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
+    url = ("https://jsonplaceholder.typicode.com/todos?userId={}"
+           .format(employee_id))
     response = urllib.request.urlopen(url)
     data = json.loads(response.read())
 
@@ -19,7 +20,7 @@ def todo_list_progress(employee_id):
     num_total_tasks = len(data)
 
     """Getting employee name"""
-    url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
+    url = "https://jsonplaceholder.typicode.com/users/{}".format(employee_id)
     response = urllib.request.urlopen(url)
     employee_data = json.loads(response.read())
     employee_name = employee_data["name"]
