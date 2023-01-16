@@ -4,8 +4,8 @@ Script, using REST API, that gives TODO list progress
 rusing given eomplyee ID
 """
 import json
-import urllib.request
 import sys
+import urllib.request
 
 
 def todo_list_progress(employee_id):
