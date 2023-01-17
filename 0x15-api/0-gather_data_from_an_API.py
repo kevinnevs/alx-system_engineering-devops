@@ -20,12 +20,11 @@ def todo_list_progress():
     TOTAL_NUM_OF_TASKS = len(data)
 
     """Getting employee name"""
-    url = "https://jsonplaceholder.typicode.com/users/{}"
+    url = "https://jsonplaceholder.typicode.com/users"
     response = urllib.request.urlopen(url)
     employee_data = json.loads(response.read())
     if employee_data["id"] == int(sys.argv[1]):
-       EMPLOYEE_NAME = employee_data["name"]
-       break
+        EMPLOYEE_NAME = employee_data["name"]
 
     """printing the output in a specific format"""
     print("Employee {} is done with tasks({}/{}):".format(EMPLOYEE_NAME,
