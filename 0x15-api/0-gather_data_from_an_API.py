@@ -31,7 +31,7 @@ def todo_list_progress(employee_id):
                                                           NUMBER_OF_DONE_TASKS,
                                                           TOTAL_NUM_OF_TASKS))
     for task in TASK_TITLE:
-        print("\t{}['title']".format(task))
+        print("\t {}".format(task))
 
 
 if __name__ == "__main__":
