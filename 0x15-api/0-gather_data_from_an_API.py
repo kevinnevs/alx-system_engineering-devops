@@ -10,8 +10,7 @@ import urllib.request
 
 def todo_list_progress(employee_id):
     """Make API request"""
-    url = ("https://jsonplaceholder.typicode.com/todos?userId={}"
-           .format(employee_id))
+    url = "https://jsonplaceholder.typicode.com/users"
     response = urllib.request.urlopen(url)
     data = json.loads(response.read())
 
