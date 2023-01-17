@@ -8,10 +8,9 @@ import sys
 import urllib.request
 
 
-def todo_list_progress(employee_id):
+def todo_list_progress():
     """Make API request"""
-    url = ("https://jsonplaceholder.typicode.com/todos?userId{}"
-           .format(employee_id))
+    url = "https://jsonplaceholder.typicode.com/todos"
     response = urllib.request.urlopen(url)
     data = json.loads(response.read())
 
@@ -21,10 +20,12 @@ def todo_list_progress(employee_id):
     TOTAL_NUM_OF_TASKS = len(data)
 
     """Getting employee name"""
-    url = "https://jsonplaceholder.typicode.com/users/{}".format(employee_id)
+    url = "https://jsonplaceholder.typicode.com/users/{}"
     response = urllib.request.urlopen(url)
     employee_data = json.loads(response.read())
-    EMPLOYEE_NAME = employee_data["name"]
+    if employee_data["id"] == int(sys.argv[1]):
+       EMPLOYEE_NAME = employee_data["name"]
+       break
 
     """printing the output in a specific format"""
     print("Employee {} is done with tasks({}/{}):".format(EMPLOYEE_NAME,
@@ -35,5 +36,4 @@ def todo_list_progress(employee_id):
 
 
 if __name__ == "__main__":
-    employee_id = int(sys.argv[1])
-    todo_list_progress(employee_id)
+    todo_list_progress()
