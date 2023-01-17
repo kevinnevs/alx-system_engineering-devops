@@ -16,21 +16,21 @@ def todo_list_progress(employee_id):
     data = json.loads(response.read())
 
     """get to filter complete tasks"""
-    complete_tasks = [tasks for tasks in data if tasks["completed"]]
-    num_done_tasks = len(complete_tasks)
-    num_total_tasks = len(data)
+    TASK_TITLE = [task for task in data if task["completed"]]
+    NUMBER_OF_DONE_TASKS = len(TASK_TITLE)
+    TOTAL_NUM_OF_TASKS = len(data)
 
     """Getting employee name"""
     url = "https://jsonplaceholder.typicode.com/users/{}".format(employee_id)
     response = urllib.request.urlopen(url)
     employee_data = json.loads(response.read())
-    employee_name = employee_data["name"]
+    EMPLOYEE_NAME = employee_data["name"]
 
     """printing the output in a specific format"""
-    print("Employee {} is done with tasks({}/{}):".format(employee_name,
-                                                          num_done_tasks,
-                                                          num_total_tasks))
-    for task in complete_tasks:
+    print("Employee {} is done with tasks({}/{}):".format(EMPLOYEE_NAME,
+                                                          NUMBER_OF_DONE_TASKS,
+                                                          TOTAL_NUM_OF_TASKS))
+    for task in TASK_TITLE:
         print("\t{}['title']".format(task))
 
 
