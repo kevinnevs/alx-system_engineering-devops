@@ -3,7 +3,6 @@
 Script, using REST API, that gives TODO list progress
 rusing given eomplyee ID
 """
-import urllib.request
 import json
 import urllib.request
 
