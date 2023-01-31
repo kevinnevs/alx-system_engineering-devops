@@ -5,6 +5,7 @@ of subscribers for a given subreddit
 """
 import requests
 
+
 def number_of_subscribers(subreddit):
     headers = {'User-Agent': 'CustomUserAgent'}
     url = ("https://www.reddit.com/r/{}/about.json".format(subreddit))
