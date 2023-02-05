@@ -1,5 +1,4 @@
-# This is a postmortem incident report based on the project Webstack debugging project #1. Where the web server's port 80 was to open for Nginx
-# sessions to be active.
+# This is a postmortem incident report based on the project Webstack debugging project #1. Where the web server's port 80 was to open for Nginx sessions to be active.
 
 NGINX SERVER OUTAGE INCIDENT REPORT
 
@@ -9,12 +8,12 @@ Issue Summary:
 * Root Cause: Nginx was not configured to listen on port 80 of all active IPv4 IPs.
 
 Timeline:
-6:00 PM: Configuration push begins
-6:10 PM: Outage begins
-6:23 PM: Pagers alerted teams
-6:30 PM: Debug and file cross-checking
-6:58 PM: Server restarts begin
-7:00 PM: 100% of traffic back online
+* 6:00 PM: Configuration push begins
+* 6:10 PM: Outage begins
+* 6:23 PM: Pagers alerted teams
+* 6:30 PM: Debug and file cross-checking
+* 6:58 PM: Server restarts begin
+* 7:00 PM: 100% of traffic back online
 
 Root Cause and Resolution:
 * The issue was caused by Nginx not being configured to listen on port 80 of all active IPv4 IPs. To resolve the issue,
